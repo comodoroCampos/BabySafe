@@ -23,33 +23,33 @@ public class TutorController {
 
 	@Autowired
 	TutorService tutorService;
-	
+
 	@GetMapping("/tutores")
 	public ResponseEntity<?> getTutores() {
 		try {
-			
-			List<Tutor> tutores= new ArrayList<Tutor>();
+
+			List<Tutor> tutores = new ArrayList<Tutor>();
 			tutores.addAll(tutorService.findAll());
-			
+
 			if (tutores.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 			}
-			
+
 			return new ResponseEntity<>(tutores, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+
 	@PostMapping("/tutor")
 	public ResponseEntity<?> guardaTutor(@RequestBody Tutor tutor) {
-		
+
 		try {
-	
-			
+
 			tutorService.guardar(tutor);
 			return new ResponseEntity<>(tutor, HttpStatus.OK);
 		} catch (Exception e) {
-			
+
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
