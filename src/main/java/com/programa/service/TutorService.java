@@ -8,4 +8,6 @@ public interface TutorService {
 
 	List<Tutor> findAll();
 
+	void guardar(Tutor tutor);
+
 }

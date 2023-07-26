@@ -25,6 +25,11 @@ public class TutorServiceImpl implements TutorService{
 	public List<Tutor> findAll(){
 		return tutorDao.findAll();
 	}
+	@Transactional
+	@Override
+	public void guardar(Tutor tutor){
+		 tutorDao.save(tutor);
+	}
 	
 
 }

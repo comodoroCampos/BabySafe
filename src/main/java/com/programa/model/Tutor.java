@@ -43,7 +43,7 @@ public class Tutor implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_tutor")
-	@SequenceGenerator(name = "sequence_solicitud", sequenceName = "seq_tutor", allocationSize = 1, schema = Constantes.ECHEMA, catalog = Constantes.CATALOGO_DB)
+	@SequenceGenerator(name = "sequence_tutor", sequenceName = "seq_tutor", allocationSize = 1, schema = Constantes.ECHEMA, catalog = Constantes.CATALOGO_DB)
 	@Column(name = "id", unique = true, nullable = false)
 	public Integer getId() {
 		return id;
