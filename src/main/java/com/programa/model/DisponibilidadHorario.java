@@ -35,7 +35,7 @@ public class DisponibilidadHorario implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_disponibilidad_horario")
 	@SequenceGenerator(name = "sequence_disponibilidad_horario", sequenceName = "seq_disponibilidad_horario", allocationSize = 1, schema = Constantes.ECHEMA, catalog = Constantes.CATALOGO_DB)
-	@Column(name = "id", unique = true, nullable = false)
+	@Column(name = "id_disponibilidad_horario", unique = true, nullable = false)
 	public Integer getId() {
 		return id;
 	}

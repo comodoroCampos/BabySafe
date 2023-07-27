@@ -35,7 +35,7 @@ public class Disponibilidad implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_disponibilidad")
 	@SequenceGenerator(name = "sequence_disponibilidad", sequenceName = "seq_disponibilidad", allocationSize = 1, schema = Constantes.ECHEMA, catalog = Constantes.CATALOGO_DB)
-	@Column(name = "id", unique = true, nullable = false)
+	@Column(name = "id_disponibilidad", unique = true, nullable = false)
 	public Integer getId() {
 		return id;
 	}

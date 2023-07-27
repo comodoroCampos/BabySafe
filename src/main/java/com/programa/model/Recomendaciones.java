@@ -21,7 +21,7 @@ import jakarta.persistence.Table;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = Recomendaciones.class)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Table(name = "tutor", schema = Constantes.ECHEMA)
+@Table(name = "recomendaciones", schema = Constantes.ECHEMA)
 public class Recomendaciones implements Serializable {
 
 	/**
@@ -38,7 +38,7 @@ public class Recomendaciones implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_recomendaciones")
 	@SequenceGenerator(name = "sequence_recomendaciones", sequenceName = "seq_recomendaciones", allocationSize = 1, schema = Constantes.ECHEMA, catalog = Constantes.CATALOGO_DB)
-	@Column(name = "id", unique = true, nullable = false)
+	@Column(name = "id_recomendaciones", unique = true, nullable = false)
 	public Integer getId() {
 		return id;
 	}

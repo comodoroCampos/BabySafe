@@ -44,7 +44,7 @@ public class Ninera implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_ninera")
 	@SequenceGenerator(name = "sequence_ninera", sequenceName = "seq_ninera", allocationSize = 1, schema = Constantes.ECHEMA, catalog = Constantes.CATALOGO_DB)
-	@Column(name = "id", unique = true, nullable = false)
+	@Column(name = "id_ninera", unique = true, nullable = false)
 	public Integer getId() {
 		return id;
 	}

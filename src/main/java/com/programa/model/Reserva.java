@@ -39,7 +39,7 @@ public class Reserva implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_reserva")
 	@SequenceGenerator(name = "sequence_reserva", sequenceName = "seq_reserva", allocationSize = 1, schema = Constantes.ECHEMA, catalog = Constantes.CATALOGO_DB)
-	@Column(name = "id", unique = true, nullable = false)
+	@Column(name = "id_reserva", unique = true, nullable = false)
 	public Integer getId() {
 		return id;
 	}
