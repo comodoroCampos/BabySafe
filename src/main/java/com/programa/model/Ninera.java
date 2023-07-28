@@ -40,6 +40,7 @@ public class Ninera implements Serializable {
 	private String telefono;
 	private String descripcion;
 	private String foto;
+	private String pass;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_ninera")
@@ -150,6 +151,15 @@ public class Ninera implements Serializable {
 
 	public void setFoto(String foto) {
 		this.foto = foto;
+	}
+
+	@Column(name = "pass")
+	public String getPass() {
+		return pass;
+	}
+
+	public void setPass(String pass) {
+		this.pass = pass;
 	}
 
 }
