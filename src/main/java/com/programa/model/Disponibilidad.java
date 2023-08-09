@@ -2,6 +2,8 @@ package com.programa.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -9,11 +11,14 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.programa.utils.Constantes;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -31,6 +36,7 @@ public class Disponibilidad implements Serializable {
 	private Integer id;
 	private Integer idNinera;
 	private Date fecha;
+	private Set<DisponibilidadHorario> horas = new HashSet<DisponibilidadHorario>(0);
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequence_disponibilidad")
@@ -60,6 +66,14 @@ public class Disponibilidad implements Serializable {
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
+	}
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "disponibilidad",orphanRemoval = true, cascade = CascadeType.ALL)
+	public Set<DisponibilidadHorario> getHoras() {
+		return horas;
+	}
+
+	public void setHoras(Set<DisponibilidadHorario> horas) {
+		this.horas = horas;
 	}
 
 }

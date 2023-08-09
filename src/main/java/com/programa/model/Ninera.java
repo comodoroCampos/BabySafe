@@ -29,6 +29,7 @@ public class Ninera implements Serializable {
 	 */
 	private static final long serialVersionUID = 993752929734693898L;
 	private Integer id;
+	private String nombre;
 	private String calleNumero;
 	private String ciudad;
 	private String region;
@@ -49,7 +50,10 @@ public class Ninera implements Serializable {
 	public Integer getId() {
 		return id;
 	}
-
+	@Column(name = "nombre")
+	public String getNombre() {
+		return nombre;
+	}
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -160,6 +164,12 @@ public class Ninera implements Serializable {
 
 	public void setPass(String pass) {
 		this.pass = pass;
+	}
+
+	
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 }

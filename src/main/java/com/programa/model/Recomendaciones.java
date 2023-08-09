@@ -9,11 +9,14 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.programa.utils.Constantes;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -29,8 +32,8 @@ public class Recomendaciones implements Serializable {
 	 */
 	private static final long serialVersionUID = 1032076170867563433L;
 	private Integer id;
-	private Integer idNinera;
-	private Integer idTutor;
+	private Ninera ninera;
+	private Tutor tutor;
 	private Integer calificacion;
 	private String comentarios;
 	private Date fecha;
@@ -47,23 +50,7 @@ public class Recomendaciones implements Serializable {
 		this.id = id;
 	}
 
-	@Column(name = "id_ninera")
-	public Integer getIdNinera() {
-		return idNinera;
-	}
 
-	public void setIdNinera(Integer idNinera) {
-		this.idNinera = idNinera;
-	}
-
-	@Column(name = "id_tutor")
-	public Integer getIdTutor() {
-		return idTutor;
-	}
-
-	public void setIdTutor(Integer idTutor) {
-		this.idTutor = idTutor;
-	}
 
 	@Column(name = "calificacion")
 	public Integer getCalificacion() {
@@ -90,6 +77,24 @@ public class Recomendaciones implements Serializable {
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
+	}
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "id_ninera", nullable = false)
+	public Ninera getNinera() {
+		return ninera;
+	}
+
+	public void setNinera(Ninera ninera) {
+		this.ninera = ninera;
+	}
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "id_tutor", nullable = false)
+	public Tutor getTutor() {
+		return tutor;
+	}
+
+	public void setTutor(Tutor tutor) {
+		this.tutor = tutor;
 	}
 
 }

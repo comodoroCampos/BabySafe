@@ -9,11 +9,14 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.programa.utils.Constantes;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -32,8 +35,8 @@ public class Reserva implements Serializable {
 	private Date fechaReserva;
 	private Date horaInicioReserva;
 	private Date horaFinReserva;
-	private Integer idNinera;
-	private Integer idTutor;
+	private Tutor ninera;
+	private Ninera tutor;
 	private Integer valorTotal;
 
 	@Id
@@ -75,24 +78,6 @@ public class Reserva implements Serializable {
 		this.horaFinReserva = horaFinReserva;
 	}
 
-	@Column(name = "id_ninera")
-	public Integer getIdNinera() {
-		return idNinera;
-	}
-
-	public void setIdNinera(Integer idNinera) {
-		this.idNinera = idNinera;
-	}
-
-	@Column(name = "id_tutor")
-	public Integer getIdTutor() {
-		return idTutor;
-	}
-
-	public void setIdTutor(Integer idTutor) {
-		this.idTutor = idTutor;
-	}
-
 	@Column(name = "valor_total")
 	public Integer getValorTotal() {
 		return valorTotal;
@@ -100,6 +85,24 @@ public class Reserva implements Serializable {
 
 	public void setValorTotal(Integer valorTotal) {
 		this.valorTotal = valorTotal;
+	}
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "id_ninera", nullable = false)
+	public Tutor getNinera() {
+		return ninera;
+	}
+
+	public void setNinera(Tutor ninera) {
+		this.ninera = ninera;
+	}
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "id_tutor", nullable = false)
+	public Ninera getTutor() {
+		return tutor;
+	}
+
+	public void setTutor(Ninera tutor) {
+		this.tutor = tutor;
 	}
 
 }

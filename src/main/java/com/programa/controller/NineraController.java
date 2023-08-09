@@ -25,7 +25,7 @@ public class NineraController {
 	NineraService nineraService;
 
 	@GetMapping("/nineras")
-	public ResponseEntity<?> getTutores() {
+	public ResponseEntity<?> getNineras() {
 		try {
 
 			List<Ninera> nineras = new ArrayList<Ninera>();
@@ -41,7 +41,7 @@ public class NineraController {
 		}
 	}
 
-	@PostMapping("/tutor")
+	@PostMapping("/ninera")
 	public ResponseEntity<?> guardaNinera(@RequestBody Ninera ninera) {
 
 		try {
