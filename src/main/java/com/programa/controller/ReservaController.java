@@ -45,7 +45,6 @@ public class ReservaController {
 	public ResponseEntity<?> guardaReserva(@RequestBody Reserva reserva) {
 
 		try {
-
 			reservaService.guardar(reserva);
 			return new ResponseEntity<>(reserva, HttpStatus.OK);
 		} catch (Exception e) {
